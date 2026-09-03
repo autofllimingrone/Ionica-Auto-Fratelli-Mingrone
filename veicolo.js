@@ -157,10 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </aside>
       </div>
 
+      ${v.info ? `
       <div class="detail-info-section">
         <h3 class="detail-info-title">ALTRE INFORMAZIONI</h3>
-        ${v.info ? `<p class="detail-description">${escapeHtml(v.info).replace(/\n/g, '<br>')}</p>` : '<p class="detail-description">Nessuna informazione aggiuntiva disponibile.</p>'}
-      </div>
+        <p class="detail-description">${escapeHtml(v.info).replace(/\n/g, '<br>')}</p>
+      </div>` : ''}
 
       <a href="index.html" class="back-link">&larr; Torna ai veicoli disponibili</a>
 

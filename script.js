@@ -76,12 +76,28 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchVehicles() {
     try {
       const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/content/veicoli`);
-      
+
+      // Cartella vuota o non ancora creata su GitHub: non è un errore di configurazione,
+      // semplicemente non ci sono veicoli da mostrare.
+      if (res.status === 404) {
+        allVehiclesData = [];
+        applySortAndRender();
+        return;
+      }
+
       if (!res.ok) {
         throw new Error("Impossibile recuperare i file dalla repository");
       }
 
       const files = await res.json();
+
+      // Se la risposta non è un array (es. cartella vuota restituita come oggetto),
+      // trattalo come "nessun veicolo disponibile" invece che come errore.
+      if (!Array.isArray(files)) {
+        allVehiclesData = [];
+        applySortAndRender();
+        return;
+      }
 
       const fetchPromises = files
         .filter(file => file.name.endsWith('.json'))
@@ -233,6 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderPage(page) {
     currentPage = page;
     vehicleList.innerHTML = '';
+
+    // Nessun veicolo disponibile: mostra un messaggio semplice e nascondi la paginazione
+    if (allVehiclesData.length === 0) {
+      vehicleList.innerHTML = `<li style="padding:40px 20px; text-align:center; color: var(--gray-text);">Nessun veicolo disponibile al momento.</li>`;
+      if (paginationNav) paginationNav.innerHTML = '';
+      return;
+    }
 
     const totalPages = Math.ceil(allVehiclesData.length / ITEMS_PER_PAGE) || 1;
     currentPage = Math.min(Math.max(currentPage, 1), totalPages);
