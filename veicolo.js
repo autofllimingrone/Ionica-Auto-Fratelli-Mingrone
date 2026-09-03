@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =====================================================
      1) CARICAMENTO SCHEDA VEICOLO DA GITHUB
      ===================================================== */
-  const GITHUB_USERNAME = "HackPietro";
+  const GITHUB_USERNAME = "autofllimingrone";
   const GITHUB_REPO = "Ionica-Auto-Fratelli-Mingrone";
 
   const detailEl = document.getElementById('vehicleDetail');
