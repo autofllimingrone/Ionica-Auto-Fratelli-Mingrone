@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestione Parco Auto</title>
+  <!-- Widget Autenticazione Netlify -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Script principale Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Disabilita la modifica dei numeri con la rotellina del mouse -->
+  <script>
+    document.addEventListener('wheel', function (e) {
+      var el = document.activeElement;
+      if (el && el.tagName === 'INPUT' && el.type === 'number') {
+        el.blur();
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
