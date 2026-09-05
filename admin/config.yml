@@ -2,7 +2,7 @@ backend:
   name: github
   repo: autofllimingrone/Ionica-Auto-Fratelli-Mingrone
   branch: main
-  base_url: https://decap-bridge.vercel.app
+  base_url: https://api.staticcms.proxy.workers.dev
   auth_endpoint: /auth
 
 locale: 'it'  
