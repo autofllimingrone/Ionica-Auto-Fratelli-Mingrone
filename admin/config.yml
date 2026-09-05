@@ -44,16 +44,14 @@ collections:
 
       # --- DETTAGLI E MEDIA ---
       - { label: "Info e Descrizione", name: "info", widget: "text", required: false }
-      # Foto: nella finestra di caricamento puoi selezionare (Ctrl/Cmd+click)
-      # o trascinare PIÙ foto insieme in un colpo solo. Dopo il caricamento
-      # trascina le miniature per riordinarle: la prima è la copertina.
-      - label: "Foto Veicolo (la prima sarà la copertina)"
+
+      # Foto: caricamento multiplo in un colpo solo. Dopo il caricamento si possono
+      # trascinare le miniature con il mouse per riordinarle: la PRIMA foto in alto
+      # a sinistra viene usata automaticamente come foto di copertina.
+      - label: "Foto Veicolo (la prima foto sarà la copertina)"
         name: "galleria"
         widget: "list"
-        required: false
         minimize_collapsed: true
-        field:
-          { label: "Foto", name: "image", widget: "image", media_library: { config: { multiple: true } } }
-
-
-              
+        summary: "{{fields.foto}}"
+        field: { label: "Foto", name: "foto", widget: "image" }
+        hint: "Clicca 'Aggiungi' per creare una riga foto. Nel popup che si apre premi 'Carica' e seleziona/trascina TUTTE le foto dal computer in una volta sola: verranno caricate insieme nella libreria. Poi clicca di nuovo 'Aggiungi' per ogni riga e scegli una foto già caricata dalla libreria (non serve ricaricarla dal PC). Alla fine trascina le righe con il mouse per metterle nell'ordine giusto: la prima in alto sarà la foto di copertina."
