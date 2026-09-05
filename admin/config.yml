@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: autofllimingrone/Ionica-Auto-Fratelli-Mingrone
   branch: main
 
 locale: 'it'  
