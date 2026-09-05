@@ -9,13 +9,13 @@
   "cilindrata": 3000,
   "cambio": "Automatico",
   "galleria": [
+    "/assets/img/veicoli/img_8614.jpeg",
+    "/assets/img/veicoli/img_8613.jpeg",
+    "/assets/img/veicoli/img_8612.jpeg",
+    "/assets/img/veicoli/img_8616.jpeg",
     "/assets/img/veicoli/img_8202.jpeg",
     "/assets/img/veicoli/img_8203.jpeg",
     "/assets/img/veicoli/img_8617.jpeg",
-    "/assets/img/veicoli/img_8616.jpeg",
-    "/assets/img/veicoli/img_8613.jpeg",
-    "/assets/img/veicoli/img_8612.jpeg",
-    "/assets/img/veicoli/img_8615.jpeg",
-    "/assets/img/veicoli/img_8614.jpeg"
+    "/assets/img/veicoli/img_8615.jpeg"
   ]
 }
