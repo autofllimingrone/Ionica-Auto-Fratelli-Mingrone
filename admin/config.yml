@@ -2,7 +2,7 @@ backend:
   name: github
   repo: autofllimingrone/Ionica-Auto-Fratelli-Mingrone
   branch: main
-  base_url: https://api.staticcms.proxy.workers.dev
+  base_url: https://decap-oauth.tuo-subdominio.workers.dev
   auth_endpoint: /auth
 
 locale: 'it'  
