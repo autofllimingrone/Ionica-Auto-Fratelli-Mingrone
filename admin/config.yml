@@ -44,17 +44,16 @@ collections:
 
       # --- DETTAGLI E MEDIA ---
       - { label: "Info e Descrizione", name: "info", widget: "text", required: false }
-
+      # Foto: nella finestra di caricamento puoi selezionare (Ctrl/Cmd+click)
+      # o trascinare PIÙ foto insieme in un colpo solo. Dopo il caricamento
+      # trascina le miniature per riordinarle: la prima è la copertina.
       - label: "Foto Veicolo (la prima sarà la copertina)"
         name: "galleria"
         widget: "list"
         required: false
         minimize_collapsed: true
-        summary: '{{fields.image}}'
         field:
-          label: "Foto"
-          name: "image"
-          widget: "image"
-          media_library:
-            config:
-              multiple: true
+          { label: "Foto", name: "image", widget: "image", media_library: { config: { multiple: true } } }
+
+
+              
