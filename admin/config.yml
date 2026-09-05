@@ -1,55 +1,6 @@
 backend:
   name: github
-  repo: autofllimingrone/Ionica-Auto-Fratelli-Mingrone
-  branch: main
-
-locale: 'it'  
-
-media_folder: "assets/img/veicoli"
-public_folder: "/assets/img/veicoli"
-
-collections:
-  - name: "veicoli"
-    label: "Veicoli"
-    folder: "content/veicoli"
-    create: true
-    slug: "{{slug}}"
-    extension: "json"
-    format: "json"
-    fields:
-      # --- INFORMAZIONI PRINCIPALI ---
-      - { label: "Titolo Veicolo", name: "titolo", widget: "string", hint: "Es. Fiat 500 1.0 Hybrid Launch Edition" }
-      - { label: "Prezzo (€)", name: "prezzo", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare 'Trattativa riservata' al posto del prezzo" }
-      - { label: "Kilometri", name: "kilometri", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
-      - { label: "Anno Immatricolazione", name: "anno", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
-
-      # --- CARATTERISTICHE TECNICHE ---
-      - label: "Alimentazione"
-        name: "alimentazione"
-        widget: "select"
-        options: ["Benzina", "Diesel", "Ibrida", "Elettrica", "GPL", "Metano"]
-        required: false
-        hint: "Lascia vuoto per mostrare un '-'"
-      - label: "Cambio"
-        name: "cambio"
-        widget: "select"
-        options: ["Manuale", "Automatico", "Semiautomatico"]
-        required: false
-        hint: "Lascia vuoto per mostrare un '-'"
-      - { label: "Cilindrata (cc)", name: "cilindrata", widget: "number", value_type: "int", required: false }
-      - { label: "Potenza (CV)", name: "potenza", widget: "number", value_type: "int", required: false }
-      - { label: "Potenza (kW)", name: "kilowatt", widget: "number", value_type: "int", required: false }
-
-      # --- DETTAGLI E MEDIA ---
-      - { label: "Info e Descrizione", name: "info", widget: "text", required: false }
-
-      # Foto: nella finestra di caricamento puoi selezionare (Ctrl/Cmd+click)
-      # o trascinare PIÙ foto insieme in un colpo solo. Dopo il caricamento
-      # trascina le miniature per riordinarle: la prima è la copertina.
-      - label: "Foto Veicolo (la prima sarà la copertina)"
-        name: "galleria"
-        widget: "list"
-        required: false
-        minimize_collapsed: true
-        field:
-          { label: "Foto", name: "image", widget: "image", media_library: { config: { multiple: true } } }
+  repo: IL_TUO_UTENTE_GITHUB/IL_TUO_REPOSITORY # Es: mario/ionica-auto
+  branch: main # Il ramo principale del tuo codice
+  base_url: https://decap-bridge.vercel.app # Oppure l'URL del tuo Worker OAuth
+  auth_endpoint: /auth
