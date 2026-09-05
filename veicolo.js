@@ -60,7 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderVehicle(v) {
-    document.title = `${v.titolo || 'Veicolo'} - Ionica Auto Fratelli Mingrone`;
+    document.title = `${v.titolo || 'Veicolo'} usata a Corigliano Rossano - Ionica Auto Fratelli Mingrone`;
+
+    // Aggiornamento dinamico dei meta tag SEO per questo specifico veicolo
+    const pageUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(id)}`;
+    const seoDescription = `${v.titolo || 'Veicolo'}${v.anno ? ' anno ' + v.anno : ''}${v.kilometri ? ', ' + Number(v.kilometri).toLocaleString('it-IT') + ' km' : ''}. In vendita da Ionica Auto Fratelli Mingrone, Corigliano Rossano (CS). Contattaci per informazioni e disponibilità.`;
+    const metaDescEl = document.getElementById('metaDescription');
+    if (metaDescEl) metaDescEl.setAttribute('content', seoDescription);
+    const canonicalEl = document.getElementById('canonicalLink');
+    if (canonicalEl) canonicalEl.setAttribute('href', pageUrl);
+    const ogTitleEl = document.getElementById('ogTitle');
+    if (ogTitleEl) ogTitleEl.setAttribute('content', `${v.titolo || 'Veicolo'} - Ionica Auto Fratelli Mingrone`);
+    const ogDescEl = document.getElementById('ogDescription');
+    if (ogDescEl) ogDescEl.setAttribute('content', seoDescription);
+    const ogImageEl = document.getElementById('ogImage');
+    if (ogImageEl && v.foto_copertina) ogImageEl.setAttribute('content', v.foto_copertina);
 
     // Galleria foto (copertina + galleria, senza duplicati)
     let photos = [];
@@ -251,6 +265,38 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowLeft' && photos.length > 1) lightboxPrev();
       if (e.key === 'ArrowRight' && photos.length > 1) lightboxNext();
     });
+
+    /* ---- Dati strutturati Schema.org Vehicle (aiuta Google a capire i dettagli dell'auto) ---- */
+    const vehicleSchema = {
+      "@context": "https://schema.org",
+      "@type": "Vehicle",
+      "name": titolo,
+      "image": photos,
+      "url": pageUrl,
+      "vehicleModelDate": v.anno || undefined,
+      "mileageFromOdometer": hasKm ? { "@type": "QuantitativeValue", "value": v.kilometri, "unitCode": "KMT" } : undefined,
+      "fuelType": v.alimentazione || undefined,
+      "vehicleTransmission": v.cambio || undefined,
+      "vehicleEngine": v.cilindrata ? { "@type": "EngineSpecification", "engineDisplacement": `${v.cilindrata} cc` } : undefined,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": hasPrezzo ? v.prezzo : undefined,
+        "availability": "https://schema.org/InStock",
+        "url": pageUrl,
+        "seller": {
+          "@type": "AutoDealer",
+          "name": "Ionica Auto Fratelli Mingrone",
+          "telephone": "+393317047561"
+        }
+      }
+    };
+    // Rimuove le chiavi con valore undefined per non generare JSON-LD sporco
+    const cleanSchema = JSON.parse(JSON.stringify(vehicleSchema, (k, val) => val === undefined ? undefined : val));
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify(cleanSchema);
+    document.head.appendChild(schemaScript);
   }
 
   function escapeHtml(str) {
