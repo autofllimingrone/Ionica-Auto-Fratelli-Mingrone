@@ -45,11 +45,10 @@ collections:
       # Foto: nella finestra di caricamento puoi selezionare (Ctrl/Cmd+click)
       # o trascinare PIÙ foto insieme in un colpo solo. Dopo il caricamento
       # trascina le miniature per riordinarle: la prima è la copertina.
-      - label: "Foto Veicolo (la prima foto sarà la copertina)"
+      - label: "Foto Veicolo (la prima sarà la copertina)"
         name: "galleria"
-        widget: "image"
-        media_library:
-          config:
-            multiple: true
+        widget: "list"
         required: false
-        hint: "Clicca sul riquadro, poi seleziona più foto insieme (Ctrl/Cmd+click) o trascinale tutte in una volta: verranno caricate insieme. Dopo il caricamento trascina le miniature con il mouse per riordinarle: la prima in alto a sinistra sarà la foto di copertina."
+        minimize_collapsed: true
+        field:
+          { label: "Foto", name: "image", widget: "image", media_library: { config: { multiple: true } } }
