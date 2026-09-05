@@ -51,4 +51,10 @@ collections:
         required: false
         minimize_collapsed: true
         summary: '{{fields.image}}'
-        field: { label: "Foto", name: "image", widget: "image" }
+        field:
+          label: "Foto"
+          name: "image"
+          widget: "image"
+          media_library:
+            config:
+              multiple: true
