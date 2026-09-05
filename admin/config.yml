@@ -2,7 +2,7 @@ backend:
   name: github
   repo: autofllimingrone/Ionica-Auto-Fratelli-Mingrone
   branch: main
-  base_url: https://decap-oauth.tuo-subdominio.workers.dev
+  base_url: https://sparkling-surf-4872.autofllimingrone.workers.dev
   auth_endpoint: /auth
 
 locale: 'it'  
