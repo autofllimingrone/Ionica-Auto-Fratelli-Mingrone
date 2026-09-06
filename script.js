@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       console.error("Errore durante il caricamento dei veicoli:", err);
-      vehicleList.innerHTML = `<li style="padding:20px; text-align:center;">Impossibile caricare i veicoli. Verifica la configurazione della repository.</li>`;
+      vehicleList.innerHTML = `<li style="padding:20px; text-align:center;">Impossibile caricare i veicoli.</li>`;
     }
   }
 
