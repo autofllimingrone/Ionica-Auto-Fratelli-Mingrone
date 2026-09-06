@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
      ===================================================== */
   const addressBtn = document.getElementById('addressLink');
   if (addressBtn) {
-    const LAT = 39.63974747859017;
-    const LNG = 16.49232138723663;
+    const LAT = 39.64016534337942;
+    const LNG = 16.491311220252552;
 
     const openMaps = () => {
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
