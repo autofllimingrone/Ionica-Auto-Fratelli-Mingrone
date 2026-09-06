@@ -1,0 +1,23 @@
+{
+  "potenza": 245,
+  "prezzo": 55000,
+  "info": "Unico proprietario\nAuto full optional\nDisponibile cronologia tagliandi\n1 anno di garanzia inclusa\nPossibilità di permuta e finanziamento con tassi agevolati",
+  "anno": 2021,
+  "alimentazione": "Diesel",
+  "kilometri": 130000,
+  "titolo": "Mercede 300d Premium Plus",
+  "cilindrata": 2000,
+  "cambio": "Automatico",
+  "galleria": [
+    "/assets/img/veicoli/img_8484.webp",
+    "/assets/img/veicoli/img_8480.webp",
+    "/assets/img/veicoli/img_8479.webp",
+    "/assets/img/veicoli/img_8482.webp",
+    "/assets/img/veicoli/img_8474.webp",
+    "/assets/img/veicoli/img_8486.webp",
+    "/assets/img/veicoli/img_8472.webp",
+    "/assets/img/veicoli/img_8478.webp",
+    "/assets/img/veicoli/img_8474.webp",
+    "/assets/img/veicoli/img_8475.webp"
+  ]
+}
