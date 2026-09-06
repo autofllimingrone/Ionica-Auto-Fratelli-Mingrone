@@ -142,14 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const li = document.createElement('li');
     li.className = 'vehicle-card';
 
-    // Solo la foto di copertina viene usata nella home: le altre foto della
-    // galleria non vengono nemmeno richieste finché l'utente non apre la
-    // scheda del veicolo (risparmia dati a chi sfoglia solo l'elenco).
-    const coverPhoto = v.foto_copertina
-      || (Array.isArray(v.galleria) && v.galleria.length > 0
-        ? (typeof v.galleria[0] === 'string' ? v.galleria[0] : v.galleria[0]?.foto)
-        : null)
-      || 'https://placehold.co/320x220/cccccc/666666?text=No+Foto';
+    // Gestione Foto Copertina e Galleria dal JSON
+    let photos = [];
+    if (v.foto_copertina) photos.push(v.foto_copertina);
+
+    if (Array.isArray(v.galleria)) {
+      v.galleria.forEach(img => {
+        const photoUrl = typeof img === 'string' ? img : (img && img.foto);
+        if (photoUrl && !photos.includes(photoUrl)) {
+          photos.push(photoUrl);
+        }
+      });
+    }
+
+    if (photos.length === 0) {
+      photos.push('https://placehold.co/320x220/cccccc/666666?text=No+Foto');
+    }
 
     // Formattazione dati con fallback per valori mancanti
     const hasPrezzo = v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
@@ -163,7 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     li.innerHTML = `
       <div class="vehicle-photo">
-        <img src="${optimizeImg(coverPhoto, 480)}" alt="${titolo}" class="card-img-active" loading="lazy" decoding="async">
+        <img src="${optimizeImg(photos[0], 480)}" alt="${titolo}" class="card-img-active" loading="lazy" decoding="async">
+        ${photos.length > 1 ? `
+          <button class="photo-nav prev-photo" aria-label="Foto precedente">&#8249;</button>
+          <button class="photo-nav next-photo" aria-label="Foto successiva">&#8250;</button>
+          <span class="photo-counter"><span class="current-idx">1</span>/${photos.length}</span>
+        ` : ''}
       </div>
       <div class="vehicle-info">
         <h2 class="vehicle-title">${titolo}</h2>
@@ -185,11 +198,35 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
+    if (photos.length > 1) {
+      let activePhotoIdx = 0;
+      const imgEl = li.querySelector('.card-img-active');
+      const counterEl = li.querySelector('.current-idx');
+      const prevBtn = li.querySelector('.prev-photo');
+      const nextBtn = li.querySelector('.next-photo');
+
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        activePhotoIdx = (activePhotoIdx - 1 + photos.length) % photos.length;
+        imgEl.src = optimizeImg(photos[activePhotoIdx], 480);
+        counterEl.textContent = activePhotoIdx + 1;
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        activePhotoIdx = (activePhotoIdx + 1) % photos.length;
+        imgEl.src = optimizeImg(photos[activePhotoIdx], 480);
+        counterEl.textContent = activePhotoIdx + 1;
+      });
+    }
+
     // Apertura scheda dettaglio veicolo al click sulla card
-    // (esclude i pulsanti di contatto, che hanno la loro funzione)
+    // (esclude i pulsanti azione e le frecce della galleria, che hanno la loro funzione)
     li.style.cursor = 'pointer';
     li.addEventListener('click', (e) => {
-      if (e.target.closest('.vehicle-actions')) return;
+      if (e.target.closest('.vehicle-actions') || e.target.closest('.photo-nav')) return;
       if (v._slug) {
         window.location.href = `veicolo.html?id=${encodeURIComponent(v._slug)}`;
       }
