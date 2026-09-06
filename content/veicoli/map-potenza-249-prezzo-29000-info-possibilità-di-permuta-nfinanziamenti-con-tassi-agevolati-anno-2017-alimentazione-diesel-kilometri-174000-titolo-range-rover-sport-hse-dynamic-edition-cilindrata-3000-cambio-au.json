@@ -1,0 +1,19 @@
+{
+  "potenza": 249,
+  "prezzo": 29000,
+  "info": "Possibilità di permuta\nFinanziamenti con tassi agevolati",
+  "anno": 2017,
+  "alimentazione": "Diesel",
+  "kilometri": 174000,
+  "titolo": "Range Rover Sport Hse Dynamic Edition",
+  "cilindrata": 3000,
+  "cambio": "Automatico",
+  "galleria": [
+    "/assets/img/veicoli/img_8614.webp",
+    "/assets/img/veicoli/img_8613.webp",
+    "/assets/img/veicoli/img_8612.webp",
+    "/assets/img/veicoli/img_8616.webp",
+    "/assets/img/veicoli/img_8617.webp",
+    "/assets/img/veicoli/img_8615.webp"
+  ]
+}
