@@ -7,7 +7,14 @@
    ===================================================== */
 function optimizeImg(url, width) {
   if (!url || url.startsWith('https://placehold.co')) return url;
-  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=75`;
+  // Le foto caricate dal CMS sono salvate come percorso relativo
+  // (es. "/assets/img/veicoli/foto.jpg"). wsrv.nl ha bisogno di un
+  // indirizzo completo per poterle scaricare, quindi lo completiamo
+  // con il dominio del sito quando manca.
+  const absoluteUrl = /^https?:\/\//i.test(url)
+    ? url
+    : `${window.location.origin}${url.startsWith('/') ? url : '/' + url}`;
+  return `https://wsrv.nl/?url=${encodeURIComponent(absoluteUrl)}&w=${width}&output=webp&q=75`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
