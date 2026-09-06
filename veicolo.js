@@ -1,3 +1,15 @@
+/* =====================================================
+   OTTIMIZZAZIONE FOTO (riduce i dati scaricati dai clienti)
+   Passa ogni foto attraverso wsrv.nl (servizio gratuito di
+   ridimensionamento/compressione immagini) chiedendo una versione
+   più piccola e convertita in WebP. Se la foto è già un placeholder
+   locale, la lascia invariata.
+   ===================================================== */
+function optimizeImg(url, width) {
+  if (!url || url.startsWith('https://placehold.co')) return url;
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp&q=75`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =====================================================
@@ -128,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="detail-grid">
         <div class="detail-gallery">
           <div class="detail-main-photo">
-            <img id="detailMainImg" src="${photos[0]}" alt="${escapeHtml(titolo)}">
+            <img id="detailMainImg" src="${optimizeImg(photos[0], 1000)}" alt="${escapeHtml(titolo)}" decoding="async">
             ${photos.length > 1 ? `
               <button class="photo-nav prev-photo" id="detailPrevBtn" aria-label="Foto precedente">&#8249;</button>
               <button class="photo-nav next-photo" id="detailNextBtn" aria-label="Foto successiva">&#8250;</button>
@@ -139,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="detail-thumbs" id="detailThumbs">
             ${photos.map((p, i) => `
               <button class="detail-thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" aria-label="Foto ${i + 1}">
-                <img src="${p}" alt="${escapeHtml(titolo)} - foto ${i + 1}">
+                <img src="${optimizeImg(p, 150)}" alt="${escapeHtml(titolo)} - foto ${i + 1}" loading="lazy" decoding="async">
               </button>
             `).join('')}
           </div>` : ''}
@@ -186,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto precedente">&#8249;</button>
             <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto successiva">&#8250;</button>
           ` : ''}
-          <img id="lightboxImg" src="${photos[0]}" alt="${escapeHtml(titolo)}">
+          <img id="lightboxImg" src="${optimizeImg(photos[0], 1600)}" alt="${escapeHtml(titolo)}">
           ${photos.length > 1 ? `<span class="lightbox-counter"><span id="lightboxCurrentIdx">1</span>/${photos.length}</span>` : ''}
         </div>
       </div>
@@ -200,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setActivePhoto(idx) {
       activeIdx = (idx + photos.length) % photos.length;
-      mainImg.src = photos[activeIdx];
+      mainImg.src = optimizeImg(photos[activeIdx], 1000);
       if (currentIdxEl) currentIdxEl.textContent = activeIdx + 1;
       thumbs.forEach(t => t.classList.toggle('active', Number(t.dataset.idx) === activeIdx));
     }
@@ -234,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateLightboxImg() {
-      lightboxImg.src = photos[activeIdx];
+      lightboxImg.src = optimizeImg(photos[activeIdx], 1600);
       if (lightboxCounter) lightboxCounter.textContent = activeIdx + 1;
     }
 

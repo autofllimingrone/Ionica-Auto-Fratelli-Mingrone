@@ -5,11 +5,24 @@ backend:
   base_url: https://sparkling-surf-4872.autofllimingrone.workers.dev
   auth_endpoint: /auth
 
-locale: 'it'  
-
+locale: 'it'
+ 
 media_folder: "assets/img/veicoli"
 public_folder: "/assets/img/veicoli"
-
+ 
+# Comprime, converte in WebP e ridimensiona ogni foto nel browser,
+# PRIMA che venga salvata nel repository. Riduce sia lo spazio occupato
+# nel repository sia i dati che i visitatori scaricano.
+media_processing:
+  enabled: true
+  format:
+    enabled: true
+    default: webp
+  quality: 75
+  strip_metadata: true
+  width: 1600
+  height: null
+ 
 collections:
   - name: "veicoli"
     label: "Veicoli"
@@ -24,7 +37,7 @@ collections:
       - { label: "Prezzo (€)", name: "prezzo", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare 'Trattativa riservata' al posto del prezzo" }
       - { label: "Kilometri", name: "kilometri", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
       - { label: "Anno Immatricolazione", name: "anno", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
-
+ 
       # --- CARATTERISTICHE TECNICHE ---
       - label: "Alimentazione"
         name: "alimentazione"
