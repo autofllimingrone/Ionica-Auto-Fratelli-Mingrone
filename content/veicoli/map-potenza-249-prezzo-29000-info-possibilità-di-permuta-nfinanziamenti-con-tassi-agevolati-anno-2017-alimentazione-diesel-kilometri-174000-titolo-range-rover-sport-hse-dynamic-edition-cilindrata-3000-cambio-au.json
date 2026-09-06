@@ -8,12 +8,5 @@
   "titolo": "Range Rover Sport Hse Dynamic Edition",
   "cilindrata": 3000,
   "cambio": "Automatico",
-  "galleria": [
-    "/assets/img/veicoli/img_8614.webp",
-    "/assets/img/veicoli/img_8613.webp",
-    "/assets/img/veicoli/img_8612.webp",
-    "/assets/img/veicoli/img_8616.webp",
-    "/assets/img/veicoli/img_8617.webp",
-    "/assets/img/veicoli/img_8615.webp"
-  ]
+  "galleria": null
 }
