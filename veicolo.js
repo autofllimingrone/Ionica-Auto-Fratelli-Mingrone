@@ -5,6 +5,21 @@
    più piccola e convertita in WebP. Se la foto è già un placeholder
    locale, la lascia invariata.
    ===================================================== */
+/* =====================================================
+   FORMATTAZIONE PREZZI E NUMERI
+   Alcuni veicoli nel CMS possono avere il prezzo salvato in modi
+   diversi (es. "16000", "16.000", "€16.000"...). Per mostrare
+   SEMPRE il punto delle migliaia in modo coerente, qui puliamo il
+   valore da qualsiasi carattere che non sia una cifra e poi lo
+   riformattiamo noi con toLocaleString.
+   ===================================================== */
+function formatNumberIT(value) {
+  if (value === undefined || value === null || value === '') return '';
+  const digitsOnly = String(value).replace(/[^\d]/g, '');
+  if (digitsOnly === '') return '';
+  return Number(digitsOnly).toLocaleString('it-IT');
+}
+
 function optimizeImg(url, width) {
   if (!url || url.startsWith('https://placehold.co')) return url;
   // Le foto caricate dal CMS sono salvate come percorso relativo
@@ -83,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Aggiornamento dinamico dei meta tag SEO per questo specifico veicolo
     const pageUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(id)}`;
-    const seoDescription = `${v.titolo || 'Veicolo'}${v.anno ? ' anno ' + v.anno : ''}${v.kilometri ? ', ' + Number(v.kilometri).toLocaleString('it-IT') + ' km' : ''}. In vendita da Ionica Auto Fratelli Mingrone, Corigliano Rossano (CS). Contattaci per informazioni e disponibilità.`;
+    const seoDescription = `${v.titolo || 'Veicolo'}${v.anno ? ' anno ' + v.anno : ''}${v.kilometri ? ', ' + formatNumberIT(v.kilometri) + ' km' : ''}. In vendita da Ionica Auto Fratelli Mingrone, Corigliano Rossano (CS). Contattaci per informazioni e disponibilità.`;
     const metaDescEl = document.getElementById('metaDescription');
     if (metaDescEl) metaDescEl.setAttribute('content', seoDescription);
     const canonicalEl = document.getElementById('canonicalLink');
@@ -111,9 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const hasPrezzo = v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
-    const formattedPrezzo = hasPrezzo ? Number(v.prezzo).toLocaleString('it-IT') : '';
+    const formattedPrezzo = hasPrezzo ? formatNumberIT(v.prezzo) : '';
     const hasKm = v.kilometri !== undefined && v.kilometri !== null && v.kilometri !== '';
-    const formattedKm = hasKm ? Number(v.kilometri).toLocaleString('it-IT') : '-';
+    const formattedKm = hasKm ? formatNumberIT(v.kilometri) : '-';
     const titolo = v.titolo || 'Senza Titolo';
 
     // Costruzione dinamica di tutte le specifiche dal CMS
@@ -125,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     if (v.cilindrata) {
-      specsRows.push(['Cilindrata', `${Number(v.cilindrata).toLocaleString('it-IT')} cc`]);
+      specsRows.push(['Cilindrata', `${formatNumberIT(v.cilindrata)} cc`]);
     }
 
     // Potenza: CV e kW mostrati insieme ma chiaramente differenziati con due badge

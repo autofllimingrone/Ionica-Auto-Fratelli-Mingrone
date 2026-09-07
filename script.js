@@ -5,6 +5,21 @@
    più piccola e convertita in WebP. Se la foto è già un placeholder
    locale, la lascia invariata.
    ===================================================== */
+/* =====================================================
+   0-bis) FORMATTAZIONE PREZZI E NUMERI
+   Alcuni veicoli nel CMS possono avere il prezzo salvato in modi
+   diversi (es. "16000", "16.000", "€16.000"...). Per mostrare
+   SEMPRE il punto delle migliaia in modo coerente, qui puliamo il
+   valore da qualsiasi carattere che non sia una cifra e poi lo
+   riformattiamo noi con toLocaleString.
+   ===================================================== */
+function formatNumberIT(value) {
+  if (value === undefined || value === null || value === '') return '';
+  const digitsOnly = String(value).replace(/[^\d]/g, '');
+  if (digitsOnly === '') return '';
+  return Number(digitsOnly).toLocaleString('it-IT');
+}
+
 function optimizeImg(url, width) {
   if (!url || url.startsWith('https://placehold.co')) return url;
   // Le foto caricate dal CMS sono salvate come percorso relativo
@@ -161,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Formattazione dati con fallback per valori mancanti
     const hasPrezzo = v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
-    const formattedPrezzo = hasPrezzo ? Number(v.prezzo).toLocaleString('it-IT') : '';
+    const formattedPrezzo = hasPrezzo ? formatNumberIT(v.prezzo) : '';
     const hasKm = v.kilometri !== undefined && v.kilometri !== null && v.kilometri !== '';
-    const formattedKm = hasKm ? Number(v.kilometri).toLocaleString('it-IT') : '-';
+    const formattedKm = hasKm ? formatNumberIT(v.kilometri) : '-';
     const titolo = v.titolo || 'Senza Titolo';
     const alimentazione = v.alimentazione || '-';
     const cambio = v.cambio || '-';
@@ -270,9 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
     sortSelect.addEventListener('change', applySortAndRender);
   }
 
-  function renderPage(page) {
+  function renderPage(page, scrollToTop = false) {
     currentPage = page;
     vehicleList.innerHTML = '';
+
+    // Quando si cambia pagina (non al primo caricamento), riporta la vista
+    // in cima all'elenco veicoli invece di lasciarla in fondo alla pagina.
+    if (scrollToTop) {
+      const scrollTarget = document.querySelector('.listing-toolbar') || vehicleList;
+      scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     // Nessun veicolo disponibile: mostra un messaggio semplice e nascondi la paginazione
     if (allVehiclesData.length === 0) {
@@ -304,14 +326,14 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.className = 'page-arrow';
     prevBtn.innerHTML = '&#8249;';
     prevBtn.disabled = currentPage === 1;
-    prevBtn.addEventListener('click', () => renderPage(currentPage - 1));
+    prevBtn.addEventListener('click', () => renderPage(currentPage - 1, true));
     paginationNav.appendChild(prevBtn);
 
     for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement('button');
       btn.className = `page-num ${i === currentPage ? 'active' : ''}`;
       btn.textContent = i;
-      btn.addEventListener('click', () => renderPage(i));
+      btn.addEventListener('click', () => renderPage(i, true));
       paginationNav.appendChild(btn);
     }
 
@@ -319,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.className = 'page-arrow';
     nextBtn.innerHTML = '&#8250;';
     nextBtn.disabled = currentPage === totalPages;
-    nextBtn.addEventListener('click', () => renderPage(currentPage + 1));
+    nextBtn.addEventListener('click', () => renderPage(currentPage + 1, true));
     paginationNav.appendChild(nextBtn);
   }
 
