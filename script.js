@@ -241,9 +241,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function applySortAndRender() {
     const value = sortSelect.value;
 
+    // I veicoli senza prezzo ("Trattativa riservata") vengono trattati come se
+    // avessero il prezzo più alto possibile: così in ordine crescente compaiono
+    // per ultimi, e in ordine decrescente compaiono per primi.
+    const hasPrice = (v) => v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
+
     allVehiclesData.sort((a, b) => {
-      const priceA = Number(a.prezzo) || 0;
-      const priceB = Number(b.prezzo) || 0;
+      const priceA = hasPrice(a) ? Number(a.prezzo) : Infinity;
+      const priceB = hasPrice(b) ? Number(b.prezzo) : Infinity;
       const kmA = Number(a.kilometri) || 0;
       const kmB = Number(b.kilometri) || 0;
       const annoA = Number(a.anno) || 0;
