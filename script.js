@@ -295,9 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
     vehicleList.innerHTML = '';
 
     // Quando si cambia pagina (non al primo caricamento), riporta la vista
-    // in cima all'elenco veicoli invece di lasciarla in fondo alla pagina.
+    // all'inizio dell'elenco veicoli, in corrispondenza della prima card
+    // della nuova pagina, invece di lasciarla in fondo alla pagina.
     if (scrollToTop) {
-      const scrollTarget = document.querySelector('.listing-toolbar') || vehicleList;
+      const scrollTarget = vehicleList;
       scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
