@@ -1,0 +1,19 @@
+{
+  "potenza": 65,
+  "prezzo": 3500,
+  "anno": 2008,
+  "alimentazione": "Benzina",
+  "kilometri": 108000,
+  "titolo": "FIAT GRANDE PUNTO",
+  "cilindrata": 1200,
+  "cambio": "Manuale",
+  "galleria": [
+    "/assets/img/veicoli/img_8103.webp",
+    "/assets/img/veicoli/img_8102.webp",
+    "/assets/img/veicoli/img_8104.webp",
+    "/assets/img/veicoli/img_8100.webp",
+    "/assets/img/veicoli/img_8101.webp",
+    "/assets/img/veicoli/img_8105.webp",
+    "/assets/img/veicoli/img_8106.webp"
+  ]
+}
