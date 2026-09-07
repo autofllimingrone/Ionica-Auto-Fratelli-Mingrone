@@ -1,0 +1,20 @@
+{
+  "potenza": 224,
+  "prezzo": 6999,
+  "anno": 2010,
+  "alimentazione": "Diesel",
+  "kilometri": 420000,
+  "titolo": "MERCEDES CLS 320 CDI",
+  "cilindrata": 3000,
+  "cambio": "Automatico",
+  "galleria": [
+    "/assets/img/veicoli/img_8491.webp",
+    "/assets/img/veicoli/img_8490.webp",
+    "/assets/img/veicoli/img_8489.webp",
+    "/assets/img/veicoli/img_8488.webp",
+    "/assets/img/veicoli/img_8487.webp",
+    "/assets/img/veicoli/img_8494.webp",
+    "/assets/img/veicoli/img_8492.webp",
+    "/assets/img/veicoli/img_8493.webp"
+  ]
+}
