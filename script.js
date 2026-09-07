@@ -298,8 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // all'inizio dell'elenco veicoli, in corrispondenza della prima card
     // della nuova pagina, invece di lasciarla in fondo alla pagina.
     if (scrollToTop) {
-      const scrollTarget = vehicleList;
-      scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const y = vehicleList.getBoundingClientRect().top + window.scrollY + 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
 
     // Nessun veicolo disponibile: mostra un messaggio semplice e nascondi la paginazione
