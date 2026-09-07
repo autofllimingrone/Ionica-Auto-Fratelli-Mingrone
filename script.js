@@ -17,7 +17,12 @@ function formatNumberIT(value) {
   if (value === undefined || value === null || value === '') return '';
   const digitsOnly = String(value).replace(/[^\d]/g, '');
   if (digitsOnly === '') return '';
-  return Number(digitsOnly).toLocaleString('it-IT');
+  // Inseriamo noi il punto delle migliaia a mano (ogni 3 cifre partendo da
+  // destra) invece di affidarci a toLocaleString('it-IT'), perché su alcuni
+  // browser/dispositivi quella funzione non raggruppa correttamente i numeri
+  // sotto le 10.000 unità (es. mostrava "3500" invece di "3.500").
+  const cleaned = String(Number(digitsOnly));
+  return cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function optimizeImg(url, width) {
