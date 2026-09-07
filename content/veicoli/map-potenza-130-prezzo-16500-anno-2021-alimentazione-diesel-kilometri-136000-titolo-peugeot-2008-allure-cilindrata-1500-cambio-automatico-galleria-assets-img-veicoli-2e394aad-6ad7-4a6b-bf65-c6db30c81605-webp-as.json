@@ -1,0 +1,17 @@
+{
+  "potenza": 130,
+  "prezzo": 16500,
+  "anno": 2021,
+  "alimentazione": "Diesel",
+  "kilometri": 136000,
+  "titolo": "PEUGEOT 2008 ALLURE",
+  "cilindrata": 1500,
+  "cambio": "Automatico",
+  "galleria": [
+    "/assets/img/veicoli/2e394aad-6ad7-4a6b-bf65-c6db30c81605.webp",
+    "/assets/img/veicoli/7411ac05-82d2-403f-934c-fed022eddfc8.webp",
+    "/assets/img/veicoli/fd691908-c3f0-4ddc-bc06-4998c5933933.webp",
+    "/assets/img/veicoli/ab5da811-e3e7-4995-a3cc-a7f0c59806d0.webp",
+    "/assets/img/veicoli/3ccf5dbe-1e5c-4d0d-8434-9321709f1e03.webp"
+  ]
+}
