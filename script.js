@@ -1,36 +1,13 @@
-/* =====================================================
-   0) OTTIMIZZAZIONE FOTO (riduce i dati scaricati dai clienti)
-   Passa ogni foto attraverso wsrv.nl (servizio gratuito di
-   ridimensionamento/compressione immagini) chiedendo una versione
-   più piccola e convertita in WebP. Se la foto è già un placeholder
-   locale, la lascia invariata.
-   ===================================================== */
-/* =====================================================
-   0-bis) FORMATTAZIONE PREZZI E NUMERI
-   Alcuni veicoli nel CMS possono avere il prezzo salvato in modi
-   diversi (es. "16000", "16.000", "€16.000"...). Per mostrare
-   SEMPRE il punto delle migliaia in modo coerente, qui puliamo il
-   valore da qualsiasi carattere che non sia una cifra e poi lo
-   riformattiamo noi con toLocaleString.
-   ===================================================== */
 function formatNumberIT(value) {
   if (value === undefined || value === null || value === '') return '';
   const digitsOnly = String(value).replace(/[^\d]/g, '');
   if (digitsOnly === '') return '';
-  // Inseriamo noi il punto delle migliaia a mano (ogni 3 cifre partendo da
-  // destra) invece di affidarci a toLocaleString('it-IT'), perché su alcuni
-  // browser/dispositivi quella funzione non raggruppa correttamente i numeri
-  // sotto le 10.000 unità (es. mostrava "3500" invece di "3.500").
   const cleaned = String(Number(digitsOnly));
   return cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function optimizeImg(url, width) {
   if (!url || url.startsWith('https://placehold.co')) return url;
-  // Le foto caricate dal CMS sono salvate come percorso relativo
-  // (es. "/assets/img/veicoli/foto.jpg"). wsrv.nl ha bisogno di un
-  // indirizzo completo per poterle scaricare, quindi lo completiamo
-  // con il dominio del sito quando manca.
   const absoluteUrl = /^https?:\/\//i.test(url)
     ? url
     : `${window.location.origin}${url.startsWith('/') ? url : '/' + url}`;
@@ -38,10 +15,6 @@ function optimizeImg(url, width) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* =====================================================
-     1) INTERAZIONI HEADER (posizione -> mappa, email -> copia)
-     ===================================================== */
   const addressBtn = document.getElementById('addressLink');
   if (addressBtn) {
     const LAT = 39.64015033351989;
@@ -65,9 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =====================================================
-     2) SLIDER FOTO HERO
-     ===================================================== */
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-dot');
   let currentSlide = 0;
@@ -98,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =====================================================
-     3) CARICAMENTO DEI VEICOLI DA DECAP CMS / NETLIFY
-     ===================================================== */
   const vehicleList = document.getElementById('vehicleList');
   const sortSelect = document.getElementById('sort');
   const paginationNav = document.getElementById('pagination');
@@ -116,8 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/content/veicoli`);
 
-      // Cartella vuota o non ancora creata su GitHub: non è un errore di configurazione,
-      // semplicemente non ci sono veicoli da mostrare.
       if (res.status === 404) {
         allVehiclesData = [];
         applySortAndRender();
@@ -130,8 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const files = await res.json();
 
-      // Se la risposta non è un array (es. cartella vuota restituita come oggetto),
-      // trattalo come "nessun veicolo disponibile" invece che come errore.
       if (!Array.isArray(files)) {
         allVehiclesData = [];
         applySortAndRender();
@@ -155,14 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* =====================================================
-     4) CREAZIONE DELLA CARD VEICOLO CON GALLERIA FOTO
-     ===================================================== */
   function createVehicleCard(v) {
     const li = document.createElement('li');
     li.className = 'vehicle-card';
 
-    // Gestione Foto Copertina e Galleria dal JSON
     let photos = [];
     if (v.foto_copertina) photos.push(v.foto_copertina);
 
@@ -179,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
       photos.push('https://placehold.co/320x220/cccccc/666666?text=No+Foto');
     }
 
-    // Formattazione dati con fallback per valori mancanti
     const hasPrezzo = v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
     const formattedPrezzo = hasPrezzo ? formatNumberIT(v.prezzo) : '';
     const hasKm = v.kilometri !== undefined && v.kilometri !== null && v.kilometri !== '';
@@ -242,8 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Apertura scheda dettaglio veicolo al click sulla card
-    // (esclude i pulsanti azione e le frecce della galleria, che hanno la loro funzione)
     li.style.cursor = 'pointer';
     li.addEventListener('click', (e) => {
       if (e.target.closest('.vehicle-actions') || e.target.closest('.photo-nav')) return;
@@ -255,15 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return li;
   }
 
-  /* =====================================================
-     5) ORDINAMENTO E PAGINAZIONE
-     ===================================================== */
   function applySortAndRender() {
     const value = sortSelect.value;
 
-    // I veicoli senza prezzo ("Trattativa riservata") vengono trattati come se
-    // avessero il prezzo più alto possibile: così in ordine crescente compaiono
-    // per ultimi, e in ordine decrescente compaiono per primi.
     const hasPrice = (v) => v.prezzo !== undefined && v.prezzo !== null && v.prezzo !== '';
 
     allVehiclesData.sort((a, b) => {
@@ -294,15 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPage = page;
     vehicleList.innerHTML = '';
 
-    // Quando si cambia pagina (non al primo caricamento), riporta la vista
-    // all'inizio dell'elenco veicoli, in corrispondenza della prima card
-    // della nuova pagina, invece di lasciarla in fondo alla pagina.
     if (scrollToTop) {
       const scrollTarget = vehicleList;
       scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Nessun veicolo disponibile: mostra un messaggio semplice e nascondi la paginazione
     if (allVehiclesData.length === 0) {
       vehicleList.innerHTML = `<li style="padding:40px 20px; text-align:center; color: var(--gray-text);">Nessun veicolo disponibile al momento.</li>`;
       if (paginationNav) paginationNav.innerHTML = '';

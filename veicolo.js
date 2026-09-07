@@ -1,36 +1,13 @@
-/* =====================================================
-   OTTIMIZZAZIONE FOTO (riduce i dati scaricati dai clienti)
-   Passa ogni foto attraverso wsrv.nl (servizio gratuito di
-   ridimensionamento/compressione immagini) chiedendo una versione
-   più piccola e convertita in WebP. Se la foto è già un placeholder
-   locale, la lascia invariata.
-   ===================================================== */
-/* =====================================================
-   FORMATTAZIONE PREZZI E NUMERI
-   Alcuni veicoli nel CMS possono avere il prezzo salvato in modi
-   diversi (es. "16000", "16.000", "€16.000"...). Per mostrare
-   SEMPRE il punto delle migliaia in modo coerente, qui puliamo il
-   valore da qualsiasi carattere che non sia una cifra e poi lo
-   riformattiamo noi con toLocaleString.
-   ===================================================== */
 function formatNumberIT(value) {
   if (value === undefined || value === null || value === '') return '';
   const digitsOnly = String(value).replace(/[^\d]/g, '');
   if (digitsOnly === '') return '';
-  // Inseriamo noi il punto delle migliaia a mano (ogni 3 cifre partendo da
-  // destra) invece di affidarci a toLocaleString('it-IT'), perché su alcuni
-  // browser/dispositivi quella funzione non raggruppa correttamente i numeri
-  // sotto le 10.000 unità (es. mostrava "3500" invece di "3.500").
   const cleaned = String(Number(digitsOnly));
   return cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function optimizeImg(url, width) {
   if (!url || url.startsWith('https://placehold.co')) return url;
-  // Le foto caricate dal CMS sono salvate come percorso relativo
-  // (es. "/assets/img/veicoli/foto.jpg"). wsrv.nl ha bisogno di un
-  // indirizzo completo per poterle scaricare, quindi lo completiamo
-  // con il dominio del sito quando manca.
   const absoluteUrl = /^https?:\/\//i.test(url)
     ? url
     : `${window.location.origin}${url.startsWith('/') ? url : '/' + url}`;
@@ -39,9 +16,6 @@ function optimizeImg(url, width) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* =====================================================
-     0) INTERAZIONI HEADER (posizione -> mappa, email -> copia)
-     ===================================================== */
   const addressBtn = document.getElementById('addressLink');
   if (addressBtn) {
     const LAT = 39.64015033351989;
@@ -65,9 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =====================================================
-     1) CARICAMENTO SCHEDA VEICOLO DA GITHUB
-     ===================================================== */
   const GITHUB_USERNAME = "autofllimingrone";
   const GITHUB_REPO = "Ionica-Auto-Fratelli-Mingrone";
 
@@ -101,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderVehicle(v) {
     document.title = `${v.titolo || 'Veicolo'} usata a Corigliano Rossano - Ionica Auto Fratelli Mingrone`;
 
-    // Aggiornamento dinamico dei meta tag SEO per questo specifico veicolo
     const pageUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(id)}`;
     const seoDescription = `${v.titolo || 'Veicolo'}${v.anno ? ' anno ' + v.anno : ''}${v.kilometri ? ', ' + formatNumberIT(v.kilometri) + ' km' : ''}. In vendita da Ionica Auto Fratelli Mingrone, Corigliano Rossano (CS). Contattaci per informazioni e disponibilità.`;
     const metaDescEl = document.getElementById('metaDescription');
@@ -115,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ogImageEl = document.getElementById('ogImage');
     if (ogImageEl && v.foto_copertina) ogImageEl.setAttribute('content', v.foto_copertina);
 
-    // Galleria foto (copertina + galleria, senza duplicati)
     let photos = [];
     if (v.foto_copertina) photos.push(v.foto_copertina);
     if (Array.isArray(v.galleria)) {
@@ -136,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formattedKm = hasKm ? formatNumberIT(v.kilometri) : '-';
     const titolo = v.titolo || 'Senza Titolo';
 
-    // Costruzione dinamica di tutte le specifiche dal CMS
     const specsRows = [
       ['Kilometri', hasKm ? `${formattedKm} km` : '-'],
       ['Anno Immatricolazione', v.anno || '-'],
@@ -148,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
       specsRows.push(['Cilindrata', `${formatNumberIT(v.cilindrata)} cc`]);
     }
 
-    // Potenza: CV e kW mostrati insieme ma chiaramente differenziati con due badge
     if (v.potenza || v.kilowatt) {
       const powerParts = [];
       if (v.potenza) powerParts.push(`${v.potenza} CV`);
@@ -231,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    /* ---- Stato galleria condiviso tra thumbnail, frecce e lightbox ---- */
     let activeIdx = 0;
     const mainImg = document.getElementById('detailMainImg');
     const thumbs = detailEl.querySelectorAll('.detail-thumb');
@@ -244,18 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbs.forEach(t => t.classList.toggle('active', Number(t.dataset.idx) === activeIdx));
     }
 
-    // Miniature
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', () => setActivePhoto(Number(thumb.dataset.idx)));
     });
 
-    // Frecce sulla foto principale
     if (photos.length > 1) {
       document.getElementById('detailPrevBtn').addEventListener('click', () => setActivePhoto(activeIdx - 1));
       document.getElementById('detailNextBtn').addEventListener('click', () => setActivePhoto(activeIdx + 1));
     }
 
-    /* ---- Lightbox (popup foto a schermo intero) ---- */
     const overlay = document.getElementById('lightboxOverlay');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxCounter = document.getElementById('lightboxCurrentIdx');
@@ -305,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowRight' && photos.length > 1) lightboxNext();
     });
 
-    /* ---- Dati strutturati Schema.org Vehicle (aiuta Google a capire i dettagli dell'auto) ---- */
     const vehicleSchema = {
       "@context": "https://schema.org",
       "@type": "Vehicle",
@@ -330,7 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     };
-    // Rimuove le chiavi con valore undefined per non generare JSON-LD sporco
     const cleanSchema = JSON.parse(JSON.stringify(vehicleSchema, (k, val) => val === undefined ? undefined : val));
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';

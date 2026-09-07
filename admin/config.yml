@@ -10,9 +10,7 @@ locale: 'it'
 media_folder: "assets/img/veicoli"
 public_folder: "/assets/img/veicoli"
  
-# Comprime, converte in WebP e ridimensiona ogni foto nel browser,
-# PRIMA che venga salvata nel repository. Riduce sia lo spazio occupato
-# nel repository sia i dati che i visitatori scaricano.
+
 media_processing:
   enabled: true
   format:
@@ -32,13 +30,11 @@ collections:
     extension: "json"
     format: "json"
     fields:
-      # --- INFORMAZIONI PRINCIPALI ---
       - { label: "Titolo Veicolo", name: "titolo", widget: "string", hint: "Es. Fiat 500 1.0 Hybrid Launch Edition" }
       - { label: "Prezzo (€)", name: "prezzo", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare 'Trattativa riservata' al posto del prezzo" }
       - { label: "Kilometri", name: "kilometri", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
       - { label: "Anno Immatricolazione", name: "anno", widget: "number", value_type: "int", required: false, hint: "Lascia vuoto per mostrare un '-'" }
  
-      # --- CARATTERISTICHE TECNICHE ---
       - label: "Alimentazione"
         name: "alimentazione"
         widget: "select"
@@ -55,12 +51,8 @@ collections:
       - { label: "Potenza (CV)", name: "potenza", widget: "number", value_type: "int", required: false }
       - { label: "Potenza (kW)", name: "kilowatt", widget: "number", value_type: "int", required: false }
  
-      # --- DETTAGLI E MEDIA ---
       - { label: "Info e Descrizione", name: "info", widget: "text", required: false }
  
-      # Foto: nella finestra di caricamento puoi selezionare (Ctrl/Cmd+click)
-      # o trascinare PIÙ foto insieme in un colpo solo. Dopo il caricamento
-      # trascina le miniature per riordinarle: la prima è la copertina.
       - label: "Foto Veicolo (la prima foto sarà la copertina)"
         name: "galleria"
         widget: "image"
