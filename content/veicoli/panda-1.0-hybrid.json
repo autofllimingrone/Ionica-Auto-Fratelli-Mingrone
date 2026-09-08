@@ -1,0 +1,19 @@
+{
+  "titolo": "PANDA 1.0 HYBRID",
+  "prezzo": 9500,
+  "kilometri": 101000,
+  "anno": 2021,
+  "alimentazione": "Benzina",
+  "cambio": "",
+  "cilindrata": 1000,
+  "potenza": 69,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8621.webp",
+    "/assets/img/veicoli/IMG_8620.webp",
+    "/assets/img/veicoli/IMG_8619.webp",
+    "/assets/img/veicoli/IMG_8622.webp",
+    "/assets/img/veicoli/IMG_8623.webp"
+  ]
+}
