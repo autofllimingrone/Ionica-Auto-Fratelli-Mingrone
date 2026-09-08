@@ -1,0 +1,17 @@
+{
+  "galleria": [
+    "/assets/img/veicoli/img_8235.webp",
+    "/assets/img/veicoli/img_8237.webp",
+    "/assets/img/veicoli/img_8233.webp",
+    "/assets/img/veicoli/img_8232.webp",
+    "/assets/img/veicoli/img_8245.webp",
+    "/assets/img/veicoli/img_8238.webp"
+  ],
+  "titolo": "LAMBORGHINI URUS S 60th ANNIVERSARIO ",
+  "kilometri": 18000,
+  "anno": 2024,
+  "alimentazione": "Benzina",
+  "cambio": "Semiautomatico",
+  "cilindrata": 4000,
+  "potenza": 666
+}
