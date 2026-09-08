@@ -1,0 +1,21 @@
+{
+  "potenza": 275,
+  "prezzo": 29000,
+  "anno": 2017,
+  "alimentazione": "Diesel",
+  "kilometri": 189000,
+  "titolo": "MASERATI LEVANTE ",
+  "cilindrata": 3000,
+  "cambio": "Automatico",
+  "galleria": [
+    "/assets/img/veicoli/img_5705.webp",
+    "/assets/img/veicoli/img_5704.webp",
+    "/assets/img/veicoli/img_5702.webp",
+    "/assets/img/veicoli/img_5700.webp",
+    "/assets/img/veicoli/img_5699.webp",
+    "/assets/img/veicoli/img_5669.webp",
+    "/assets/img/veicoli/img_5672.webp",
+    "/assets/img/veicoli/img_5680.webp",
+    "/assets/img/veicoli/img_5670.webp"
+  ]
+}
