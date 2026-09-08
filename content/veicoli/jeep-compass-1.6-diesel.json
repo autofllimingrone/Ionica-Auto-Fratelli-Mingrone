@@ -1,0 +1,22 @@
+{
+  "titolo": "JEEP COMPASS 1.6 Diesel",
+  "prezzo": 16500,
+  "kilometri": 170000,
+  "anno": 2022,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 1600,
+  "potenza": 130,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8684.webp",
+    "/assets/img/veicoli/IMG_8683.webp",
+    "/assets/img/veicoli/IMG_8680.webp",
+    "/assets/img/veicoli/IMG_8679.webp",
+    "/assets/img/veicoli/IMG_8685.webp",
+    "/assets/img/veicoli/IMG_8686.webp",
+    "/assets/img/veicoli/IMG_8682.webp",
+    "/assets/img/veicoli/IMG_8681.webp"
+  ]
+}
