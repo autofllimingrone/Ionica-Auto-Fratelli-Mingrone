@@ -11,22 +11,20 @@ media_folder: "assets/img/veicoli"
 public_folder: "/assets/img/veicoli"
  
 
-media_processing:
-  enabled: true
-  format:
-    enabled: true
-    default: webp
-  quality: 75
-  strip_metadata: true
-  width: 1600
-  height: null
+media_libraries:
+  all:
+    transformations:
+      raster_image:
+        format: webp
+        quality: 75
+        width: 1600
  
 collections:
   - name: "veicoli"
     label: "Veicoli"
     folder: "content/veicoli"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.titolo}}"
     extension: "json"
     format: "json"
     fields:
@@ -61,5 +59,3 @@ collections:
             multiple: true
         required: false
         hint: "Clicca sul riquadro, poi seleziona più foto insieme (Ctrl/Cmd+click) o trascinale tutte in una volta: verranno caricate insieme. Dopo il caricamento trascina le miniature con il mouse per riordinarle: la prima in alto a sinistra sarà la foto di copertina."
- 
- 
