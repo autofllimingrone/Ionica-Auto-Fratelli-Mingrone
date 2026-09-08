@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('sort');
   const paginationNav = document.getElementById('pagination');
   
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 10;
   let allVehiclesData = [];
   let currentPage = 1;
 
