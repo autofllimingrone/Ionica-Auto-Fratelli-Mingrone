@@ -1,0 +1,23 @@
+{
+  "titolo": "PEUGEOT 3008 GT Line",
+  "prezzo": 16500,
+  "kilometri": 170000,
+  "anno": 2018,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 200,
+  "potenza": 180,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8676.webp",
+    "/assets/img/veicoli/IMG_8677.webp",
+    "/assets/img/veicoli/IMG_8673.webp",
+    "/assets/img/veicoli/IMG_8672.webp",
+    "/assets/img/veicoli/IMG_8674.webp",
+    "/assets/img/veicoli/IMG_8675.webp",
+    "/assets/img/veicoli/IMG_8670.webp",
+    "/assets/img/veicoli/IMG_8671.webp",
+    "/assets/img/veicoli/IMG_8669.webp"
+  ]
+}
