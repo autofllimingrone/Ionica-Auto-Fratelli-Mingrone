@@ -1,0 +1,22 @@
+{
+  "titolo": "MERCEDES C250 4Matic Premium",
+  "prezzo": 16999,
+  "kilometri": 28000,
+  "anno": 2017,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 204,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8700.webp",
+    "/assets/img/veicoli/IMG_8699.webp",
+    "/assets/img/veicoli/IMG_8703.webp",
+    "/assets/img/veicoli/IMG_8702.webp",
+    "/assets/img/veicoli/IMG_8698.webp",
+    "/assets/img/veicoli/IMG_8705.webp",
+    "/assets/img/veicoli/IMG_8704.webp",
+    "/assets/img/veicoli/IMG_8697.webp"
+  ]
+}
