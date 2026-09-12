@@ -1,0 +1,21 @@
+{
+  "titolo": "SMART 800 Cdi",
+  "prezzo": 1800,
+  "kilometri": 230000,
+  "anno": 2004,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 800,
+  "potenza": null,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8539.webp",
+    "/assets/img/veicoli/IMG_6523.webp",
+    "/assets/img/veicoli/IMG_6522.webp",
+    "/assets/img/veicoli/IMG_6525.webp",
+    "/assets/img/veicoli/IMG_6527.webp",
+    "/assets/img/veicoli/IMG_6524.webp",
+    "/assets/img/veicoli/IMG_6526.webp"
+  ]
+}
