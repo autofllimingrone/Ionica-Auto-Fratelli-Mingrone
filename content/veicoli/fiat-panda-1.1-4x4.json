@@ -1,0 +1,19 @@
+{
+  "titolo": "FIAT PANDA 1.1 4x4",
+  "prezzo": 4999,
+  "kilometri": 190000,
+  "anno": 1999,
+  "alimentazione": "Benzina",
+  "cambio": "Manuale",
+  "cilindrata": 1100,
+  "potenza": null,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_7317.webp",
+    "/assets/img/veicoli/IMG_7318.webp",
+    "/assets/img/veicoli/IMG_7320.webp",
+    "/assets/img/veicoli/IMG_7321.webp",
+    "/assets/img/veicoli/IMG_7319.webp"
+  ]
+}
