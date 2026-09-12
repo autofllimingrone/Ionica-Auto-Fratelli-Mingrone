@@ -1,0 +1,21 @@
+{
+  "titolo": "JEEP RENEGADE 2.0 4x4",
+  "prezzo": 10999,
+  "kilometri": 157000,
+  "anno": 2019,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 2000,
+  "potenza": 140,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8750.webp",
+    "/assets/img/veicoli/IMG_8749.webp",
+    "/assets/img/veicoli/IMG_8751.webp",
+    "/assets/img/veicoli/IMG_8753.webp",
+    "/assets/img/veicoli/IMG_8752.webp",
+    "/assets/img/veicoli/IMG_8754.webp",
+    "/assets/img/veicoli/IMG_8747.webp"
+  ]
+}
