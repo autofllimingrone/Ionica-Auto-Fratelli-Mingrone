@@ -1,0 +1,22 @@
+{
+  "titolo": "MERCEDES GLB 200 4Matic Premium",
+  "prezzo": 29900,
+  "kilometri": 137000,
+  "anno": 2021,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 150,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_6053.webp",
+    "/assets/img/veicoli/IMG_6057.webp",
+    "/assets/img/veicoli/IMG_5827.webp",
+    "/assets/img/veicoli/IMG_5825.webp",
+    "/assets/img/veicoli/IMG_6055.webp",
+    "/assets/img/veicoli/IMG_5819.webp",
+    "/assets/img/veicoli/IMG_5816.webp",
+    "/assets/img/veicoli/IMG_5820.webp"
+  ]
+}
