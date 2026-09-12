@@ -1,0 +1,20 @@
+{
+  "titolo": "FORD KUGA 2.0",
+  "prezzo": 12500,
+  "kilometri": 190000,
+  "anno": 2019,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 120,
+  "kilowatt": null,
+  "info": "Monta Motore nuovo con circa 30 mila km",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8497.webp",
+    "/assets/img/veicoli/IMG_8496.webp",
+    "/assets/img/veicoli/IMG_8498.webp",
+    "/assets/img/veicoli/IMG_8500.webp",
+    "/assets/img/veicoli/IMG_8499.webp",
+    "/assets/img/veicoli/IMG_8458.webp"
+  ]
+}
