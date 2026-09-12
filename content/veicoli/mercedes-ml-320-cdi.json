@@ -1,0 +1,19 @@
+{
+  "titolo": "MERCEDES ML 320 cdi",
+  "prezzo": 5999,
+  "kilometri": 280000,
+  "anno": 2009,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 3000,
+  "potenza": null,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_6487.webp",
+    "/assets/img/veicoli/IMG_6485.webp",
+    "/assets/img/veicoli/IMG_6484.webp",
+    "/assets/img/veicoli/IMG_6486.webp",
+    "/assets/img/veicoli/IMG_6483.webp"
+  ]
+}
