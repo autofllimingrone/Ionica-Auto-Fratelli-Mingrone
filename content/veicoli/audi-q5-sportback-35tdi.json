@@ -1,0 +1,24 @@
+{
+  "titolo": "AUDI Q5 SPORTBACK 35Tdi",
+  "prezzo": 34999,
+  "kilometri": 155000,
+  "anno": 2022,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 166,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_5654.webp",
+    "/assets/img/veicoli/IMG_5655.webp",
+    "/assets/img/veicoli/IMG_5648.webp",
+    "/assets/img/veicoli/IMG_5646.webp",
+    "/assets/img/veicoli/IMG_5650.webp",
+    "/assets/img/veicoli/IMG_5649.webp",
+    "/assets/img/veicoli/IMG_5652.webp",
+    "/assets/img/veicoli/IMG_5653.webp",
+    "/assets/img/veicoli/IMG_5656.webp",
+    "/assets/img/veicoli/IMG_5657.webp"
+  ]
+}
