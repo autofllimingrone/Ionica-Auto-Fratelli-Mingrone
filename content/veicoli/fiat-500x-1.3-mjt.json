@@ -1,0 +1,23 @@
+{
+  "titolo": "FIAT 500x 1.3 Mjt",
+  "prezzo": 17999,
+  "kilometri": 70000,
+  "anno": 2023,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 1300,
+  "potenza": 95,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8743.webp",
+    "/assets/img/veicoli/IMG_8740.webp",
+    "/assets/img/veicoli/IMG_8741.webp",
+    "/assets/img/veicoli/IMG_8739.webp",
+    "/assets/img/veicoli/IMG_8737.webp",
+    "/assets/img/veicoli/IMG_8742.webp",
+    "/assets/img/veicoli/IMG_8745.webp",
+    "/assets/img/veicoli/IMG_8746.webp",
+    "/assets/img/veicoli/IMG_8738.webp"
+  ]
+}
