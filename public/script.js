@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchVehicles() {
     try {
-      const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/content/veicoli`);
+      const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/public/content/veicoli`);
 
       if (res.status === 404) {
         allVehiclesData = [];
