@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadVehicle() {
     try {
-      const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/content/veicoli`);
+      const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/public/content/veicoli`);
       if (!res.ok) throw new Error("Impossibile recuperare i file dalla repository");
 
       const files = await res.json();
