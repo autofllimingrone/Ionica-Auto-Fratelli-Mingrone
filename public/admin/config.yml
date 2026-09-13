@@ -8,7 +8,7 @@ backend:
 locale: 'it'
  
 media_folder: "public/assets/img/veicoli"
-public_folder: "public/assets/img/veicoli"
+public_folder: "assets/img/veicoli"
  
 
 media_libraries:
