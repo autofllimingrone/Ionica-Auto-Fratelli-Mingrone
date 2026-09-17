@@ -1,0 +1,20 @@
+{
+  "titolo": "ALFA ROMEO STELVIO Q4 Super",
+  "prezzo": 21500,
+  "kilometri": 145000,
+  "anno": 2021,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2200,
+  "potenza": 190,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8832.webp",
+    "/assets/img/veicoli/IMG_8831.webp",
+    "/assets/img/veicoli/IMG_8829.webp",
+    "/assets/img/veicoli/IMG_8827.webp",
+    "/assets/img/veicoli/IMG_8828.webp",
+    "/assets/img/veicoli/IMG_8830.webp"
+  ]
+}
