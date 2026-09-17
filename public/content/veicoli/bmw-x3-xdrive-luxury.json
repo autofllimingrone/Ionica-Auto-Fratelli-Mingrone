@@ -1,0 +1,24 @@
+{
+  "titolo": "BMW X3 XDRIVE luxury",
+  "prezzo": 21900,
+  "kilometri": 190000,
+  "anno": 2019,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 190,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8825.webp",
+    "/assets/img/veicoli/IMG_8826.webp",
+    "/assets/img/veicoli/IMG_8824.webp",
+    "/assets/img/veicoli/IMG_8822.webp",
+    "/assets/img/veicoli/IMG_8821.webp",
+    "/assets/img/veicoli/IMG_8823.webp",
+    "/assets/img/veicoli/IMG_8819.webp",
+    "/assets/img/veicoli/IMG_8818.webp",
+    "/assets/img/veicoli/IMG_8816.webp",
+    "/assets/img/veicoli/IMG_8817.webp"
+  ]
+}
