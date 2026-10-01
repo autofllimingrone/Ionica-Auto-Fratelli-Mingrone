@@ -1,0 +1,25 @@
+{
+  "titolo": "MERCEDES CLASSE C220",
+  "prezzo": 34900,
+  "kilometri": 120000,
+  "anno": 2022,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 194,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9054.webp",
+    "/assets/img/veicoli/IMG_9052.webp",
+    "/assets/img/veicoli/IMG_9053.webp",
+    "/assets/img/veicoli/IMG_9051.webp",
+    "/assets/img/veicoli/IMG_9055.webp",
+    "/assets/img/veicoli/IMG_9050.webp",
+    "/assets/img/veicoli/IMG_9048.webp",
+    "/assets/img/veicoli/IMG_9049.webp",
+    "/assets/img/veicoli/IMG_9047.webp",
+    "/assets/img/veicoli/IMG_9056.webp",
+    "/assets/img/veicoli/IMG_9057.webp"
+  ]
+}
