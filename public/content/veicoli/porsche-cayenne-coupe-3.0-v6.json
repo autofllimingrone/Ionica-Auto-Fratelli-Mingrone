@@ -1,0 +1,24 @@
+{
+  "titolo": "PORSCHE CAYENNE COUPE 3.0 v6",
+  "prezzo": null,
+  "kilometri": 109000,
+  "anno": 2020,
+  "alimentazione": "Benzina",
+  "cambio": "Automatico",
+  "cilindrata": 3000,
+  "potenza": 340,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_8975.webp",
+    "/assets/img/veicoli/IMG_8974.webp",
+    "/assets/img/veicoli/IMG_8971.webp",
+    "/assets/img/veicoli/IMG_8972.webp",
+    "/assets/img/veicoli/IMG_8970.webp",
+    "/assets/img/veicoli/IMG_8973.webp",
+    "/assets/img/veicoli/IMG_8976.webp",
+    "/assets/img/veicoli/IMG_8980.webp",
+    "/assets/img/veicoli/IMG_8978.webp",
+    "/assets/img/veicoli/IMG_8979.webp"
+  ]
+}
