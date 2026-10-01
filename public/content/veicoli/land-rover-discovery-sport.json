@@ -1,0 +1,23 @@
+{
+  "titolo": "LAND ROVER DISCOVERY SPORT",
+  "prezzo": 9999,
+  "kilometri": 160000,
+  "anno": 2016,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 2000,
+  "potenza": 150,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9026.webp",
+    "/assets/img/veicoli/IMG_9029.webp",
+    "/assets/img/veicoli/IMG_9025.webp",
+    "/assets/img/veicoli/IMG_9023.webp",
+    "/assets/img/veicoli/IMG_9022.webp",
+    "/assets/img/veicoli/IMG_9021.webp",
+    "/assets/img/veicoli/IMG_9024.webp",
+    "/assets/img/veicoli/IMG_9027.webp",
+    "/assets/img/veicoli/IMG_9028.webp"
+  ]
+}
