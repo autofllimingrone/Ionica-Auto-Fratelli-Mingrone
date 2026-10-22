@@ -9,5 +9,17 @@
   "potenza": 190,
   "kilowatt": null,
   "info": "",
-  "galleria": []
+  "galleria": [
+    "/assets/img/veicoli/63f04c00-4a1a-4f39-8849-2a8a522788cc.webp",
+    "/assets/img/veicoli/cf352426-e9ba-4cf5-a898-e44cd2623102.webp",
+    "/assets/img/veicoli/dbacc38c-4cd4-41b4-b112-5b059e4719d6.webp",
+    "/assets/img/veicoli/72da5633-c900-4a17-beeb-04de1086bb26.webp",
+    "/assets/img/veicoli/b9bd94bd-f536-457d-8fc1-554124de637e.webp",
+    "/assets/img/veicoli/7f18b3c4-265f-4098-8abf-1f6e4ee94769.webp",
+    "/assets/img/veicoli/97977f01-dc4d-48c3-bb58-9bdbcdf98a3f.webp",
+    "/assets/img/veicoli/21d3c27f-5ef5-4e98-84c9-d40b24e9567a.webp",
+    "/assets/img/veicoli/fdb325a0-c7f8-441f-9f67-f8d99a6c4cb0.webp",
+    "/assets/img/veicoli/0e00cb82-fc30-4ac1-b8e5-b79f37171727.webp",
+    "/assets/img/veicoli/56c17650-3808-46a2-9e66-ef4f4bfaebca.webp"
+  ]
 }
