@@ -1,0 +1,23 @@
+{
+  "titolo": "AUDI A4 2.0 Tdi",
+  "prezzo": 6500,
+  "kilometri": 240000,
+  "anno": 2008,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 2000,
+  "potenza": 143,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/40e9a873-73c6-4b7a-9f2c-f34b548e6a72.webp",
+    "/assets/img/veicoli/1586afc6-3f35-44b7-a80a-4112fc7a818d.webp",
+    "/assets/img/veicoli/d0f42782-6c62-4efe-ac90-dc78811d3913.webp",
+    "/assets/img/veicoli/9787c02d-060c-41ac-a46b-9f97b10ee40c.webp",
+    "/assets/img/veicoli/1c734a71-073c-42bf-ad49-b5242da5a908.webp",
+    "/assets/img/veicoli/c342527e-41c7-4293-8416-9c0fd179ef0f.webp",
+    "/assets/img/veicoli/a973f412-8e5a-40dd-bb32-280c62df6ddb.webp",
+    "/assets/img/veicoli/ff93a272-87f7-4b13-8221-ada1ffeeea4a.webp",
+    "/assets/img/veicoli/0b837a2e-1327-451e-b498-7c787902dd52.webp"
+  ]
+}
