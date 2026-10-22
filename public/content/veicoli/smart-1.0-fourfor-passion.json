@@ -1,0 +1,22 @@
+{
+  "titolo": "SMART 1.0 FourFor Passion",
+  "prezzo": 10500,
+  "kilometri": 69000,
+  "anno": 2015,
+  "alimentazione": "Benzina",
+  "cambio": "Manuale",
+  "cilindrata": 1000,
+  "potenza": 79,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9222.webp",
+    "/assets/img/veicoli/IMG_9221.webp",
+    "/assets/img/veicoli/IMG_9224.webp",
+    "/assets/img/veicoli/IMG_9223.webp",
+    "/assets/img/veicoli/IMG_9226.webp",
+    "/assets/img/veicoli/IMG_9220.webp",
+    "/assets/img/veicoli/IMG_9219.webp",
+    "/assets/img/veicoli/IMG_9225.webp"
+  ]
+}
