@@ -1,0 +1,23 @@
+{
+  "titolo": "FIAT PANDA 1.3 mjt 4x4",
+  "prezzo": 5999,
+  "kilometri": 142700,
+  "anno": 2006,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 1300,
+  "potenza": 95,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9191.webp",
+    "/assets/img/veicoli/IMG_9189.webp",
+    "/assets/img/veicoli/IMG_9188.webp",
+    "/assets/img/veicoli/IMG_9187.webp",
+    "/assets/img/veicoli/IMG_9190.webp",
+    "/assets/img/veicoli/IMG_9185.webp",
+    "/assets/img/veicoli/IMG_9184.webp",
+    "/assets/img/veicoli/IMG_9186.webp",
+    "/assets/img/veicoli/IMG_9183.webp"
+  ]
+}
