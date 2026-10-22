@@ -1,0 +1,23 @@
+{
+  "titolo": "FIAT 500x 2.0 4x4 Cross plus",
+  "prezzo": 9999,
+  "kilometri": 144,
+  "anno": 2015,
+  "alimentazione": "",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 140,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/6dadff51-ab32-4caa-80e1-806eac8a0677.webp",
+    "/assets/img/veicoli/e79e273f-dddb-4acb-9734-3d8595ab379a.webp",
+    "/assets/img/veicoli/c2ec10a9-68ed-45da-ba0d-a04f1f491757.webp",
+    "/assets/img/veicoli/48284510-acfd-4908-8daf-f459e9732210.webp",
+    "/assets/img/veicoli/0429bf22-ef71-4c47-8ef3-2c2542227cb3.webp",
+    "/assets/img/veicoli/d5a5cefc-edc8-4046-b756-2310cf4c74fc.webp",
+    "/assets/img/veicoli/008e440d-33bd-4e8a-b3eb-48d35800279b.webp",
+    "/assets/img/veicoli/7ecf013d-d920-4a57-becd-5c525376d4dd.webp",
+    "/assets/img/veicoli/d00b5805-504b-47db-a4a5-e2be0d28a631.webp"
+  ]
+}
