@@ -1,0 +1,23 @@
+{
+  "titolo": "BMW X1 20D Msport X drive",
+  "prezzo": 38900,
+  "kilometri": 166000,
+  "anno": 2024,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 2000,
+  "potenza": 150,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9569.webp",
+    "/assets/img/veicoli/IMG_9572.webp",
+    "/assets/img/veicoli/IMG_9571.webp",
+    "/assets/img/veicoli/IMG_9570.webp",
+    "/assets/img/veicoli/IMG_9573.webp",
+    "/assets/img/veicoli/IMG_9567.webp",
+    "/assets/img/veicoli/IMG_9568.webp",
+    "/assets/img/veicoli/IMG_9574.webp",
+    "/assets/img/veicoli/IMG_9575.webp"
+  ]
+}
