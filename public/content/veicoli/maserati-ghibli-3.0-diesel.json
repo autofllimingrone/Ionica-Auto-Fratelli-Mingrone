@@ -1,0 +1,20 @@
+{
+  "titolo": "MASERATI GHIBLI 3.0 Diesel",
+  "prezzo": 29000,
+  "kilometri": 166000,
+  "anno": 2016,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 3000,
+  "potenza": 245,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9696.webp",
+    "/assets/img/veicoli/IMG_9697.webp",
+    "/assets/img/veicoli/IMG_9698.webp",
+    "/assets/img/veicoli/IMG_9699.webp",
+    "/assets/img/veicoli/IMG_9700.webp",
+    "/assets/img/veicoli/IMG_9701.webp"
+  ]
+}
