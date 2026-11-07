@@ -1,0 +1,22 @@
+{
+  "titolo": "FIAT 500L 1.6d TREKKING",
+  "prezzo": 8500,
+  "kilometri": 183700,
+  "anno": 2015,
+  "alimentazione": "Diesel",
+  "cambio": "Automatico",
+  "cilindrata": 1600,
+  "potenza": 105,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9677.webp",
+    "/assets/img/veicoli/IMG_9678.webp",
+    "/assets/img/veicoli/IMG_9676.webp",
+    "/assets/img/veicoli/IMG_9673.webp",
+    "/assets/img/veicoli/IMG_9672.webp",
+    "/assets/img/veicoli/IMG_9675.webp",
+    "/assets/img/veicoli/IMG_9679.webp",
+    "/assets/img/veicoli/IMG_9674.webp"
+  ]
+}
