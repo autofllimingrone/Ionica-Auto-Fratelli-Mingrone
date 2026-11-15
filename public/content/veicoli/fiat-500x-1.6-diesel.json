@@ -1,0 +1,23 @@
+{
+  "titolo": "FIAT 500X 1.6 Diesel",
+  "prezzo": 17900,
+  "kilometri": 70000,
+  "anno": 2023,
+  "alimentazione": "Diesel",
+  "cambio": "Manuale",
+  "cilindrata": 1600,
+  "potenza": 130,
+  "kilowatt": null,
+  "info": "",
+  "galleria": [
+    "/assets/img/veicoli/IMG_9653.webp",
+    "/assets/img/veicoli/IMG_9656.webp",
+    "/assets/img/veicoli/IMG_9655.webp",
+    "/assets/img/veicoli/IMG_9654.webp",
+    "/assets/img/veicoli/IMG_9657.webp",
+    "/assets/img/veicoli/IMG_9658.webp",
+    "/assets/img/veicoli/IMG_9660.webp",
+    "/assets/img/veicoli/IMG_9661.webp",
+    "/assets/img/veicoli/IMG_9662.webp"
+  ]
+}
